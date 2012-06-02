@@ -1,4 +1,4 @@
-# Debian packager 4 PHP
+# Debian packager (PHP)
 
 A simple debian packager for PHP applications
 
