@@ -71,7 +71,7 @@ class StandardFile
         return $this->_setProperty($this["Priority"], $priority);
     }
     
-    public function setArchitectur($arch)
+    public function setArchitecture($arch)
     {
         return $this->_setProperty("Architecture", $arch);
     }
@@ -106,9 +106,10 @@ class StandardFile
         return $this->_setProperty("Installed-Size", $size);
     }
     
-    public function setMaintainer($maintainer)
+    public function setMaintainer($maintainer, $email = false)
     {
-        return $this->_setProperty("Maintainer", $maintainer);
+        $email = ($email) ? $email : "not-set@provider.it";
+        return $this->_setProperty("Maintainer", $maintainer . "[{$mail}]");
     }
     
     public function setConflicts($conflicts)
