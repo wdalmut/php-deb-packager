@@ -108,7 +108,7 @@ class StandardFile
     
     public function setMaintainer($maintainer, $email = false)
     {
-        $email = ($email) ? $email : "not-set@provider.it";
+        $email = ($email) ? $email : "---";
         return $this->_setProperty("Maintainer", $maintainer . "[{$email}]");
     }
     
