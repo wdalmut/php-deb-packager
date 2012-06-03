@@ -9,7 +9,7 @@ $control
     ->setDepends(array("php5", "php5-cli", "php5-xsl"))
     ->setInstalledSize(4096)
     ->setMaintainer("Walter Dal Mut", "walter.dalmut@corley.it")
-    ->setProvides("Corley S.r.l.")
+    ->setProvides("my-package-name")
     ->setDescription("My software description");
 ;
 
