@@ -38,10 +38,63 @@ class Packager
     private $_mountPoints = array();
     private $_outputPath;
     
+    private $_preInst;
+    private $_postInst;
+    private $_preRM;
+    private $_postRM;
+    
+    /**
+     * Set the control file
+     * 
+     * This file contains the base package information
+     * 
+     * @param StandardFile $control
+     * @return \wdm\debian\Packager
+     */
     public function setControl(StandardFile $control)
     {
         $this->_control = $control;
         return $this;
+    }
+    
+    /**
+     * Pre install script
+     * 
+     * @param string $path The absolute path of your pre-install script
+     */
+    public function setPreInstallScript($path)
+    {
+    	$this->_preInst = $path;
+    }
+    
+    /**
+     * Post install script
+     * 
+     * @param string $path The absolute path of your post-install script
+     */
+    public function setPostInstallScript($path)
+    {
+    	$this->_postInst = $path;
+    }
+    
+    /**
+     * Pre remove script
+     * 
+     * @param string $path The absolute path of your pre-remove script
+     */
+    public function setPreRemoveScript($path)
+    {
+    	$this->_preRM = $path;
+    }
+    
+    /**
+     * Post remove script
+     * 
+     * @param string $path The absolute path of your post-remove script
+     */
+    public function setPostRemoveScript($path)
+    {
+    	$this->_postRM = $path;
     }
     
     public function mount($sourcePath, $destinationPath)
@@ -73,7 +126,32 @@ class Packager
         }
         
         mkdir($this->_outputPath . "/DEBIAN", 0777);
+        
         file_put_contents($this->_outputPath . "/DEBIAN/control", (string)$this->_control);
+        
+        if ($this->_preInst) {
+        	$dest = $this->_outputPath . "/DEBIAN/preinst";
+        	$this->_copy($this->_preInst, $dest);
+        	chmod($dest, 0755);
+        }
+        
+        if ($this->_postInst) {
+        	$dest = $this->_outputPath . "/DEBIAN/postinst";
+        	$this->_copy($this->_postInst, $dest);
+        	chmod($dest, 0755);
+        }
+        
+        if ($this->_preRM) {
+        	$dest = $this->_outputPath . "/DEBIAN/prerm";
+        	$this->_copy($this->_preRM, $dest);
+        	chmod($dest, 0755);
+        }
+        
+        if ($this->_postRM) {
+        	$dest = $this->_outputPath . "/DEBIAN/postrm";
+        	$this->_copy($this->_postRM, $dest);
+        	chmod($dest, 0755);
+        }
         
         return $this;
     }
