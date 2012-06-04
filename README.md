@@ -33,3 +33,38 @@ $packager->run();
 //Creates the Debian package
 $packager->build();
 ```
+## Pre-Post scripts
+
+Optianally you can add script for different hooks
+
+ * pre-install
+   * Run pre install
+ * post-install
+   * Run post install
+ * pre-remove
+   * Run pre package remove
+ * post-remove
+   * Run post package remove
+   
+Adding scripts
+
+```php
+$packager->setPreInstallScript(__DIR__ . '/my-pre-install-script.sh');
+$packager->setPostInstallScript(__DIR__ . '/my-post-install-script.sh');
+$packager->setPreRemoveScript(__DIR__ . '/my-pre-remove-script.sh');
+$packager->setPreRemoveScript(__DIR__ . '/my-post-remove-script.sh');
+```
+
+See a script example for the post-install hook
+
+```shell
+#!/bin/sh
+#postinst script for upcloo
+
+set -e
+
+echo "Goodbye Cruel World"
+
+exit 0
+```
+ 
