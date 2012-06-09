@@ -55,7 +55,7 @@ $packager->setPreRemoveScript(__DIR__ . '/my-pre-remove-script.sh');
 $packager->setPreRemoveScript(__DIR__ . '/my-post-remove-script.sh');
 ```
 
-See a script example for the post-install hook
+See a script example
 
 ```shell
 #!/bin/sh
