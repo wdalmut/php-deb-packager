@@ -21,7 +21,9 @@
         "php": ">=5.3.3"
     },
     "autoload": {
-        "psr-0": ["src/"]
+        "psr-0": {
+            "wdm": "src/"
+        }
     },
     "repositories": [
         {
