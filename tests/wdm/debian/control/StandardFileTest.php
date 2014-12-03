@@ -28,4 +28,12 @@ Description: Your description
 OEF;
         $this->assertEquals($expected, $conf);
     }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testFilterMissingOrInvalidProperties()
+    {
+        $this->object["MyPersonalSection"] = "Test";
+    }
 }
