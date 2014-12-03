@@ -1,5 +1,8 @@
 # Debian packager (PHP)
 
+ * Develop: [![Build Status](https://travis-ci.org/wdalmut/php-deb-packager.svg?branch=develop)](https://travis-ci.org/wdalmut/php-deb-packager)
+ * Master : [![Build Status](https://travis-ci.org/wdalmut/php-deb-packager.svg?branch=master)](https://travis-ci.org/wdalmut/php-deb-packager)
+
 A simple debian packager for PHP applications
 
 ```php
