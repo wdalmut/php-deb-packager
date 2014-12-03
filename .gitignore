@@ -7,3 +7,5 @@ vendor
 *.deb
 
 src/*.tgz
+
+tags
