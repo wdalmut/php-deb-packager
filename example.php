@@ -23,5 +23,5 @@ $packager->mount(__DIR__ . "/../../diff", "/my-differ");
 //Creates folders using mount points
 $packager->run();
 
-//Creates the Debian package
-$packager->build();
+//Get the Debian package command
+echo $packager->build();
