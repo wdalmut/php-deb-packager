@@ -30,9 +30,16 @@ $packager->mount("/path/to/docs", "/usr/share/docs");
 //Creates folders using mount points
 $packager->run();
 
-//Creates the Debian package
-$packager->build();
+//Get the Debian package command
+echo $packager->build();
 ```
+
+**Create the Package**
+
+```
+$(php pack.php)
+```
+
 ## Pre-Post scripts
 
 Optianally you can add script for different hooks
@@ -45,7 +52,7 @@ Optianally you can add script for different hooks
    * Run pre package remove
  * post-remove
    * Run post package remove
-   
+
 Adding scripts
 
 ```php
@@ -67,4 +74,4 @@ echo "Goodbye Cruel World"
 
 exit 0
 ```
- 
+

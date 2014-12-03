@@ -192,8 +192,8 @@ class Packager
             $debPackageName = basename($this->_outputPath . ".deb");
         }
 
-        $command = "dpkg -b {$this->_outputPath} {$debPackageName}" . PHP_EOL;
+        $command = "dpkg -b {$this->_outputPath} {$debPackageName}";
 
-        echo $command;
+        return $command;
     }
 }

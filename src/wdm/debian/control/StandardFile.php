@@ -160,10 +160,10 @@ class StandardFile
             return null;
         }
     }
-    
+
     public function offsetSet ($offset, $value) {
         if (!$this->offsetExists($offset)) {
-            throw new \Exception("Invalid property for this control file.");
+            throw new \InvalidArgumentException("Invalid property '{$offset}' for this control file.");
         }
         $this->_keys[$offset] = $value;
     }
