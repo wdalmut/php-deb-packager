@@ -8,7 +8,7 @@ A simple debian packager for PHP applications
 ```php
 <?php
 
-require_once 'wdm/debian/Autoloader.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $control = new \wdm\debian\control\StandardFile();
 $control
