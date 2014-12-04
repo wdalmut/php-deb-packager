@@ -5,6 +5,20 @@
 
 A simple debian packager for PHP applications
 
+Get composer:
+
+```
+curl -sS http://getcomposer.org/installer | php 
+```
+
+Install dependencies and autoloader
+
+```
+php composer.phar install
+```
+
+Use it:
+
 ```php
 <?php
 
