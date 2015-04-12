@@ -14,4 +14,12 @@ class PackagerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals("dpkg -b /tmp my.deb", $this->object->build("my.deb"));
     }
+
+    public function testRetriveControlFile()
+    {
+        $control = new control\StandardFile();
+        $this->object->setControl($control);
+
+        $this->assertSame($control, $this->object->getControl());
+    }
 }
