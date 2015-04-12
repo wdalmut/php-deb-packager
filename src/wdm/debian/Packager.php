@@ -29,6 +29,16 @@ class Packager
     }
 
     /**
+     * Return the actual control file
+     *
+     * @return StandardFile
+     */
+    public function getControl()
+    {
+        return $this->_control;
+    }
+
+    /**
      * Pre install script
      *
      * @param string $path The absolute path of your pre-install script
