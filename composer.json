@@ -1,7 +1,6 @@
 {
     "name": "wdalmut/php-deb-packager",
     "description": "A simple debian packager for PHP applications",
-    "version":"0.0.3",
     "type":"library",
     "keywords":["deb","packager","ubuntu","php-deb"],
     "time":"2012-07-31",
