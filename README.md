@@ -92,3 +92,7 @@ echo "Goodbye Cruel World"
 exit 0
 ```
 
+## Use Yaml files instead the library directly
+
+Just take a look to [wdalmut/php-deb-describe](https://github.com/wdalmut/php-deb-describe)
+
