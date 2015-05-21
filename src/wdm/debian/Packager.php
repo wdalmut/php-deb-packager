@@ -178,6 +178,8 @@ class Packager
             mkdir($destFolder, 0777, true);
         }
         copy($source, $dest);
+        if (fileperms($source) != fileperms($dest))
+            chmod($dest, fileperms($source));
     }
 
     public function build($debPackageName = false)
