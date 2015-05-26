@@ -1,6 +1,7 @@
 <?php
 namespace wdm\debian;
 
+use RuntimeException;
 use wdm\debian\control\StandardFile;
 
 class Packager
@@ -109,13 +110,14 @@ class Packager
             $iterator = new \DirectoryIterator($this->getOutputPath());
             foreach ($iterator as $path) {
                 if ($path != '.' && $path != '..') {
-                    echo "OUTPUT DIRECTORY MUST BE EMPTY! Something exists, exit immediately!" . PHP_EOL;
-                    exit();
+                    throw new RuntimeException("OUTPUT DIRECTORY MUST BE EMPTY! Something exists, exit immediately!");
                 }
             }
         }
 
-        mkdir($this->getOutputPath(), 0777);
+        if (!file_exists($this->getOutputPath())) {
+            mkdir($this->getOutputPath(), 0777);
+        }
 
         foreach ($this->_mountPoints as $path => $dest) {
             $this->_pathToPath($path, $this->getOutputPath() . DIRECTORY_SEPARATOR . $dest);
