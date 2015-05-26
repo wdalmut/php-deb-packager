@@ -108,7 +108,7 @@ class Packager
         if (file_exists($this->getOutputPath())) {
             $iterator = new \DirectoryIterator($this->getOutputPath());
             foreach ($iterator as $path) {
-                if ($path != '.' || $path != '..') {
+                if ($path != '.' && $path != '..') {
                     echo "OUTPUT DIRECTORY MUST BE EMPTY! Something exists, exit immediately!" . PHP_EOL;
                     exit();
                 }
