@@ -76,7 +76,7 @@ Adding scripts
 $packager->setPreInstallScript(__DIR__ . '/my-pre-install-script.sh');
 $packager->setPostInstallScript(__DIR__ . '/my-post-install-script.sh');
 $packager->setPreRemoveScript(__DIR__ . '/my-pre-remove-script.sh');
-$packager->setPreRemoveScript(__DIR__ . '/my-post-remove-script.sh');
+$packager->setPostRemoveScript(__DIR__ . '/my-post-remove-script.sh');
 ```
 
 See a script example
