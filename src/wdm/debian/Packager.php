@@ -182,7 +182,10 @@ class Packager
         if (is_link($source)) {
             symlink(readlink($source), $dest);
         } else {
-            copy($source, $dest);
+            if(!copy($source, $dest)) {
+                echo "Error: failed to copy: $source -> $dest \m";
+                return;
+            }
         }
         if (fileperms($source) != fileperms($dest)) {
             chmod($dest, fileperms($source));
