@@ -181,6 +181,7 @@ class Packager
         }
         if (is_link($source)) {
             symlink(readlink($source), $dest);
+            return; // don't set perms on symlink targets
         } else {
             if(!copy($source, $dest)) {
                 echo "Error: failed to copy: $source -> $dest \m";
