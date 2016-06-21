@@ -179,13 +179,18 @@ class Packager
         if (!file_exists($destFolder)) {
             mkdir($destFolder, 0777, true);
         }
-	if (is_link($source)){
-	    symlink(readlink($source), $dest);
-	} else {
-            copy($source, $dest);
-	}
-        if (fileperms($source) != fileperms($dest))
+        if (is_link($source)) {
+            symlink(readlink($source), $dest);
+            return; // don't set perms on symlink targets
+        } else {
+            if(!copy($source, $dest)) {
+                echo "Error: failed to copy: $source -> $dest \m";
+                return;
+            }
+        }
+        if (fileperms($source) != fileperms($dest)) {
             chmod($dest, fileperms($source));
+        }
     }
 
     public function build($debPackageName = false)
