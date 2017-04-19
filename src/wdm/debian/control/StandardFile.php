@@ -183,7 +183,7 @@ class StandardFile
     {
         $control = '';
         foreach ($this->_keys as $key => $value) {
-            if($value){
+            if ($value) {
                 $control .= "{$key}: {$value}" . PHP_EOL;
             }
         }
