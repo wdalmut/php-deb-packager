@@ -149,11 +149,13 @@ class StandardFile
         return $this;
     }
 
-    public function offsetExists ($offset) {
+    public function offsetExists ($offset)
+    {
         return array_key_exists($offset, $this->_keys);
     }
 
-    public function offsetGet ($offset) {
+    public function offsetGet ($offset)
+    {
         if ($this->offsetExists($offset)) {
             return $this->_keys[$offset];
         } else {
@@ -161,14 +163,16 @@ class StandardFile
         }
     }
 
-    public function offsetSet ($offset, $value) {
+    public function offsetSet ($offset, $value)
+    {
         if (!$this->offsetExists($offset)) {
             throw new \InvalidArgumentException("Invalid property '{$offset}' for this control file.");
         }
         $this->_keys[$offset] = $value;
     }
 
-    public function offsetUnset ($offset) {
+    public function offsetUnset ($offset)
+    {
         if ($this->offsetExists($offset)) {
             unset($this->_keys[$offset]);
         }
