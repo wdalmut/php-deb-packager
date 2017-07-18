@@ -44,7 +44,7 @@ class StandardFile
         "Recommends" => false,
         "Suggests" => false,
         "Installed-Size" => 1024,
-        "Maintainer" => "name [email]",
+        "Maintainer" => "name <email>",
         "Conflicts" => false,
         "Replaces" => false,
         "Provides" => "your-company",
@@ -109,7 +109,7 @@ class StandardFile
     public function setMaintainer($maintainer, $email = false)
     {
         $email = ($email) ? $email : "---";
-        return $this->_setProperty("Maintainer", $maintainer . "[{$email}]");
+        return $this->_setProperty("Maintainer", "{$maintainer} <{$email}>");
     }
 
     public function setConflicts($conflicts)

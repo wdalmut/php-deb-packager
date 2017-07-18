@@ -21,7 +21,7 @@ Priority: optional
 Architecture: all
 Essential: no
 Installed-Size: 1024
-Maintainer: name [email]
+Maintainer: name <email>
 Provides: your-company
 Description: Your description
 
@@ -46,7 +46,7 @@ OEF;
         $this->object["Architecture"] = "x86";
         $this->object["Essential"] = "yes";
         $this->object["Installed-Size"] = "2048";
-        $this->object["Maintainer"] = "Walter Dal Mut [walter.dalmut at gmail dot com]";
+        $this->object["Maintainer"] = "Walter Dal Mut <walter.dalmut at gmail dot com>";
         $this->object["Provides"] = "Corley SRL";
         $this->object["Description"] = "My Desc";
         $this->object["Depends"] = "php5-cli";
@@ -63,7 +63,7 @@ Essential: yes
 Depends: php5-cli
 Recommends: php5-curl
 Installed-Size: 2048
-Maintainer: Walter Dal Mut [walter.dalmut at gmail dot com]
+Maintainer: Walter Dal Mut <walter.dalmut at gmail dot com>
 Provides: Corley SRL
 Description: My Desc
 
