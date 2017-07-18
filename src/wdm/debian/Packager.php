@@ -196,7 +196,11 @@ class Packager
     public function build($debPackageName = false)
     {
         if (!$debPackageName) {
-            $debPackageName = basename($this->getOutputPath() . ".deb");
+            $control = $this->getControl();
+            $name = $control['Package'];
+            $version = $control['Version'];
+            $arch = $control['Architecture'];
+            $debPackageName = "{$name}_{$version}_{$arch}.deb";
         }
 
         $command = "dpkg -b {$this->getOutputPath()} {$debPackageName}";

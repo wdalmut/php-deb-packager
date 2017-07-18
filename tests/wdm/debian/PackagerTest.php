@@ -57,8 +57,14 @@ class PackagerTest extends \PHPUnit_Framework_TestCase
 
         $this->object->run();
         $command = $this->object->build();
+        
+        $control = $this->object->getControl();
+        $name = $control['Package'];
+        $version = $control['Version'];
+        $arch = $control['Architecture'];
+        $debPackageName = "{$name}_{$version}_{$arch}.deb";
 
-        $this->assertEquals("dpkg -b vfs://root/tmp tmp.deb", $command);
+        $this->assertEquals("dpkg -b vfs://root/tmp {$debPackageName}", $command);
     }
 
     public function testCreateDebWhenOutputFolderIsMissing()
@@ -72,8 +78,14 @@ class PackagerTest extends \PHPUnit_Framework_TestCase
 
         $this->object->run();
         $command = $this->object->build();
+        
+        $control = $this->object->getControl();
+        $name = $control['Package'];
+        $version = $control['Version'];
+        $arch = $control['Architecture'];
+        $debPackageName = "{$name}_{$version}_{$arch}.deb";
 
-        $this->assertEquals("dpkg -b vfs://root/tmp tmp.deb", $command);
+        $this->assertEquals("dpkg -b vfs://root/tmp {$debPackageName}", $command);
     }
 
     public function testCreateDebPackageWithAnotherName()
