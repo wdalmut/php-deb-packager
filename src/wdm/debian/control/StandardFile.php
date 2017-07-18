@@ -119,7 +119,7 @@ class StandardFile
 
     public function setReplaces($replaces)
     {
-        return $this->_setProperty("Conflicts", $this->_transformList($replaces));
+        return $this->_setProperty("Replaces", $this->_transformList($replaces));
     }
 
     public function setProvides($provides)
