@@ -68,7 +68,7 @@ class StandardFile
 
     public function setPriority($priority)
     {
-        return $this->_setProperty($this["Priority"], $priority);
+        return $this->_setProperty("Priority", $priority);
     }
 
     public function setArchitecture($arch)
