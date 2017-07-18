@@ -93,7 +93,7 @@ class StandardFile
 
     public function setRecommends($depends)
     {
-        return $this->_setProperty("Reccommends", $depends);
+        return $this->_setProperty("Recommends", $this->_transformList($depends));
     }
 
     public function setSuggests($depends)
