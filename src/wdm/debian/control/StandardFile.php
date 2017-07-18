@@ -124,7 +124,7 @@ class StandardFile
 
     public function setProvides($provides)
     {
-        return $this->_setProperty("Provides", $provides);
+        return $this->_setProperty("Provides", $this->_transformList($provides));
     }
 
     public function setDescription($description)
